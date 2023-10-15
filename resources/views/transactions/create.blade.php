@@ -46,6 +46,10 @@
                         <option value="Comic">Comic</option> --}}
                     </select>
                 </div>
+                <div class="mb-3 col-md-12 col-sm-12">
+                    <label for="title" class="form-label">Notes</label>
+                    <input type="text" class="form-control" id="notes" name="notes" value="{{ old('notes') }}">
+                </div>
                 <button type="submit" class="btn btn-primary btn-block">Save</button>
             </form>
         </div>
