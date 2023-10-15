@@ -35,6 +35,7 @@
                 <div class="mb-3 col-md-12 col-sm-12">
                     <label for="category" class="form-label">Category</label><br>
                     <select name="category" id="category" class="form-select form-select-lg mb-3">
+                        {{-- @if () --}}
                         <option value="Uncategorized">Uncategorized</option>
                         {{-- <option value="Sci-fi">Science Fiction</option>
                         <option value="Novel">Novel</option>
