@@ -39,7 +39,7 @@ class TransactionController extends Controller
             'amount' => 'required|numeric|min:50000|max:10000000000',
             'type' => 'required',
             'category' => 'required',
-            'notes' => 'string'
+            'notes' => 'nullable|string'
         ]);
 
         $transaction = Transaction::create([
@@ -77,7 +77,7 @@ class TransactionController extends Controller
             'amount' => 'required|numeric|min:50000|max:10000000000',
             'type' => 'required',
             'category' => 'required',
-            'notes' => 'string'
+            'notes' => 'nullable|string'
         ]);
 
         $transaction = Transaction::create([

@@ -5,6 +5,7 @@
 @section('content')
     <div class="mt-4 p-5 bg-black text-white rounded">
         <h1>All Transactions</h1>
+        <a href="{{ route('transactions.create') }}" class="btn btn-light btn-sm">Add New Transaction</a>
     </div>
 
     <div class="row mt-4 mb-4">
