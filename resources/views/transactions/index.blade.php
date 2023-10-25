@@ -116,7 +116,7 @@
             <tbody>
                 @forelse ($transactions as $transaction)
                     <tr>
-                        <th scope="row">{{ $transaction->id }}</th>
+                        <th scope="row"><a href="{{route('transactions.show', $transaction)}}">{{ $transaction->id}}</a></th>
                         <td>Rp. {{ number_format( $transaction->amount ) }}</td>
                         <td>{{ $transaction->type }}</td>
                         <td>{{ $transaction->category }}</td>
