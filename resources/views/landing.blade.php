@@ -10,7 +10,7 @@
                     <h1 class="display-4 fst-italic">{{ $featured->type }}</h1>
                     <p class="lead my-3">{{ $featured->notes }}</p>
                     <p class="lead my-3">Rp. {{ number_format($featured->amount) }}</p>
-                    <p class="lead my-3">{{ $featured->category }}</p>
+                    <p class="lead my-3">Category:<br>{{ $featured->category }}</p>
                     <p class="lead mb-0">
                         <a href="{{ route('transactions.show', $featured) }}" class="text-white fw-bold">
                             More details...
@@ -28,9 +28,9 @@
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary">{{ $transaction->type }}</strong>
                         <h3 class="mb-0">{{ $transaction->notes }}</h3>
-                        <div class="mb-1 text-muted">{{ number_format($transaction->amount) }}</div>
+                        <div class="mb-1 text-muted">Rp. {{ number_format($transaction->amount) }}</div>
                         <p class="card-text mb-auto">{{ $transaction->category }}</p>
-                        <a href="{{ route('transactions.show', $transaction) }}" class="stretched-link">Continue reading</a>
+                        <a href="{{ route('transactions.show', $transaction) }}" class="stretched-link">See details...</a>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,29 @@
 
 @section('title', 'Add New Article')
 
+@section('script')
+                    {{-- <script language="JavaScript">
+                        function updateCategory(){
+                            value_select = $("#type").val();
+                            $.post('resources/views/transactions/create.blade.php', {"value":value_select}, function(data){
+                                alert('test')
+                                $value=$_POST['value']
+                            })
+                        }
+                    </script> --}}
+                    {{-- <script language="JavaScript">
+                        function updateCategory(){
+                            convertedType = "";
+                            pilihan = document.frm.inputType.selectedIndex;
+                            switch(pilihan){
+                                case 1 : convertedType = "A"; break;
+                                case 2 : convertedType = "B"; break;
+                            };
+                            var A = 1;
+                        };
+                    </script> --}}
+@endsection
+
 @section('content')
     <div class="mt-4 p-5 bg-black text-white rounded">
         <h1>Add New Article</h1>
@@ -19,32 +42,23 @@
 
     <div class="row my-5">
         <div class="col-12 px-5">
-            <form action="{{ route('transactions.store') }}" method="POST">
+            <form action="{{ route('transactions.store') }}" method="POST" name="frm">
                 @csrf
                 <div class="mb-3 col-md-12 col-sm-12">
                     <label for="title" class="form-label">Amount</label>
                     <input type="number" class="form-control" id="amount" name="amount" value="{{ old('amount') }}">
                 </div>
                 <div class="mb-3 col-md-12 col-sm-12">
-                    <label for="type" class="form-label">Type</label><br>
-                    <select name="type" id="type" class="form-select form-select-lg mb-3">
-                        <option value="Income">Income</option>
-                        <option value="Expense">Expense</option>
+                    <label for="type" class="form-label">Type</label>
+                    <select class="form-control" id="type" name="type" required>
+                        <option disabled selected="selected">Select Option Here</option>
+                        <option value="Income" {{ old('type') === 'Income' ? 'selected' : ''}}>Income</option>
+                        <option value="Expense" {{ old('type') === 'Expense' ? 'selected' : ''}}>Expense</option>
                     </select>
                 </div>
                 <div class="mb-3 col-md-12 col-sm-12">
-                    <label for="category" class="form-label">Category</label><br>
-                    <select name="category" id="category" class="form-select form-select-lg mb-3">
-                        {{-- @if () --}}
-                        <option value="Uncategorized">Uncategorized</option>
-                        {{-- <option value="Sci-fi">Science Fiction</option>
-                        <option value="Novel">Novel</option>
-                        <option value="History">History</option>
-                        <option value="Biography">Biography</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Education">Education</option>
-                        <option value="Culinary">Culinary</option>
-                        <option value="Comic">Comic</option> --}}
+                    <label for="category" class="form-label">Category</label>
+                    <select id="category" name="category" class="form-control" required>
                     </select>
                 </div>
                 <div class="mb-3 col-md-12 col-sm-12">
@@ -55,4 +69,35 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Klasifikasi dropdown type dan kategori
+        var typeDropdown = document.getElementById('type');
+        var categoryDropdown = document.getElementById('category');
+
+        // Pilihan untuk dropdown kategori
+        var categoryOptions = {
+            Income: ['Uncategorized', 'Wage', 'Bonus', 'Gift'],
+            Expense: ['Uncategorized', 'Food & Drinks', 'Shopping', 'Charity', 'Housing', 'Insurance', 'Taxes', 'Transportation']
+        };
+
+        // Event listener untuk update kategori sesuai type
+        typeDropdown.addEventListener('change', function() {
+            categoryDropdown.innerHTML = '';
+
+            // Membuat opsi baru sesuai dengan type
+            var selectedType = typeDropdown.value;
+            categoryOptions[selectedType].forEach(function(category) {
+                addCategoryOption(category);
+            });
+        });
+
+        // Fungsi untuk menambah opsi kedalam kategori
+        function addCategoryOption(value) {
+            var option = document.createElement('option');
+            option.value = value;
+            option.textContent = value;
+            categoryDropdown.appendChild(option);
+        }
+        </script>
 @endsection

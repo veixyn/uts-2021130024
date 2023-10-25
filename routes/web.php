@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', LandingController::class);
+Route::get('/', LandingController::class)->name('landing');
 
 Route::resource('transactions', TransactionController::class);
