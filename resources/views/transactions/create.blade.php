@@ -1,33 +1,13 @@
 @extends('welcome')
 
-@section('title', 'Add New Article')
+@section('title', 'Add New Transaction')
 
 @section('script')
-                    {{-- <script language="JavaScript">
-                        function updateCategory(){
-                            value_select = $("#type").val();
-                            $.post('resources/views/transactions/create.blade.php', {"value":value_select}, function(data){
-                                alert('test')
-                                $value=$_POST['value']
-                            })
-                        }
-                    </script> --}}
-                    {{-- <script language="JavaScript">
-                        function updateCategory(){
-                            convertedType = "";
-                            pilihan = document.frm.inputType.selectedIndex;
-                            switch(pilihan){
-                                case 1 : convertedType = "A"; break;
-                                case 2 : convertedType = "B"; break;
-                            };
-                            var A = 1;
-                        };
-                    </script> --}}
 @endsection
 
 @section('content')
     <div class="mt-4 p-5 bg-black text-white rounded">
-        <h1>Add New Article</h1>
+        <h1>Add New Transaction</h1>
     </div>
 
     @if ($errors->any())

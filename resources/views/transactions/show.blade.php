@@ -11,6 +11,6 @@
         <p>Category: <b>{{ $transaction->category }}</b></p>
         <p>Notes:<br>{{ $transaction->notes }}</p>
         <br>
-        <p>Transaction made on:<br><b>{{ $transaction->created_at }}</b></p>
+        <p>Transaction was made on:<br><b>{{ $transaction->created_at }}</b></p>
     </article>
 @endsection
